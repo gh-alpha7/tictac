@@ -90,8 +90,7 @@ function onBoxClick() {
       if(turnCount<9)
         computerTurn();
       else{
-        document.getElementById("winner").innerHTML="New Game"
-        resetGame()
+        document.getElementById("winner").innerHTML="Tie <button onclick=resetGame()>Restart</button>"
     }
   }
 
@@ -110,13 +109,11 @@ function computerTurn(){
 
 function winCheck(){
   if(computerWin()){
-    document.getElementById("winner").innerHTML="COMPUTER WON"
-    resetGame()
+    document.getElementById("winner").innerHTML="COMPUTER WON <button onclick=resetGame()>Restart</button>"
     return true
   }
   else if(humanWin()){
-    document.getElementById("winner").innerHTML="HUMAN WON"
-    resetGame()
+    document.getElementById("winner").innerHTML="HUMAN WON <button onclick=resetGame()>Restart</button>"
     return true
   }
   return false
@@ -157,6 +154,8 @@ function resetGame(){
   renderMainGrid();
   addClickHandlers();
   turnCount=0
+  document.getElementById("winner").innerHTML="New Game <button onclick=resetGame()>Restart</button>"
+
 
 }
 
