@@ -82,16 +82,18 @@ function onBoxClick() {
     var colIdx = this.getAttribute("colIdx");
 
     let newValue =1
-    turnCount+=1
-    grid[colIdx][rowIdx] = newValue;
-    renderMainGrid();
-    addClickHandlers();
-    if(!winCheck()){
-      if(turnCount<9)
-        computerTurn();
-      else{
-        document.getElementById("winner").innerHTML="Tie <button onclick=resetGame()>Restart</button>"
-    }
+    if(grid[colIdx][rowIdx]==0){
+      turnCount+=1
+      grid[colIdx][rowIdx] = newValue;
+      renderMainGrid();
+      addClickHandlers();
+      if(!winCheck()){
+        if(turnCount<9)
+          computerTurn();
+        else{
+          document.getElementById("winner").innerHTML="Tie <button onclick=resetGame()>Restart</button>"
+        }
+      }
   }
 
 }
