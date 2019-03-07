@@ -19,7 +19,7 @@
 
 let grid = [];
 const GRID_LENGTH = 3;
-let turn = 'X',turnCount=0;
+let turn = 'X',turnCount=0,winner=0;
 
 
 
@@ -82,7 +82,7 @@ function onBoxClick() {
     var colIdx = this.getAttribute("colIdx");
 
     let newValue =1
-    if(grid[colIdx][rowIdx]==0){
+    if(grid[colIdx][rowIdx]==0&&winner==0){
       turnCount+=1
       grid[colIdx][rowIdx] = newValue;
       renderMainGrid();
@@ -112,10 +112,12 @@ function computerTurn(){
 function winCheck(){
   if(computerWin()){
     document.getElementById("winner").innerHTML="COMPUTER WON <button onclick=resetGame()>Restart</button>"
+    winner=1
     return true
   }
   else if(humanWin()){
     document.getElementById("winner").innerHTML="HUMAN WON <button onclick=resetGame()>Restart</button>"
+    winner=1
     return true
   }
   return false
