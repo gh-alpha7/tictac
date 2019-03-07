@@ -153,6 +153,7 @@ function humanWin(){
 }
 
 function resetGame(){
+  winner=0
   grid=[]
   initializeGrid();
   renderMainGrid();
